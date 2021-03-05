@@ -1,0 +1,33 @@
+.star-rating {
+    min-height: 25px;
+    div {
+        position: relative;
+        display: inline-block
+    }
+}
+
+.star-filled {
+    color: #f9d14e;
+}
+
+.star-unfilled {
+    color: #d8d8d8;
+    position: relative;
+}
+
+.star-rating-review {
+    top: 0;
+    left: 0;
+    font-size: 14px;
+}
+
+.favorite-icon {
+    border: none;
+    background: none;
+    float: right;
+    cursor: pointer;
+}
+
+.toasted.toasted-primary.warning {
+    background-color: #d9a60c;
+}
