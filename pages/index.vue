@@ -41,30 +41,30 @@
 		</section>
 		<section class="section-campaign">
 			<h4>Bantu Sesama Sekarang</h4>
-			<article class="card-campaign" v-if="campaignIndex < campaign.length" v-for="campaignIndex in campaignToShow" :key="index" :value="campaign[campaignIndex].id">
-				<nuxt-link :to="`/campaign/${campaign[campaignIndex].title}/detail`">
+			<article class="card-campaign" v-if="index < limit_by" v-for="(row, index) in campaign" :key="index" :value="row.id">
+				<nuxt-link :to="`/campaign/${row.title}/detail`">
 				<figure>
-					<img :src="campaign[campaignIndex].image">
+					<img :src="row.image">
 				</figure>
 				<section class="progress-campaign">
-					<h5>{{campaign[campaignIndex].title}}</h5>
-					<span :class="`badge-category ${campaign[campaignIndex].category}`">{{campaign[campaignIndex].category}}</span>
+					<h5>{{row.title}}</h5>
+					<span :class="`badge-category ${row.category}`">{{row.category}}</span>
 					<progress-bar size="medium" :val="50"></progress-bar>
 					<article class="card-funding">
 						<section class="donation">
 							<span>Terkumpul</span>
-							<span>Rp {{campaign[campaignIndex].terkumpul | currency}}</span>
+							<span>Rp {{row.terkumpul | currency}}</span>
 						</section>
 						<section class="left">
 							<span>Sisa Waktu</span>
-							<span>{{(new Date(campaign[campaignIndex].expire_date) - new Date(campaign[campaignIndex].start_date)) / (1000 * 60 * 60 * 24)}} Hari</span>
+							<span>{{(new Date(row.expire_date) - new Date(row.start_date)) / (1000 * 60 * 60 * 24)}} Hari</span>
 						</section>
 					</article>
 				</section>
 				</nuxt-link>
 			</article>
-			<article v-if="campaignToShow < campaign.length || campaign.length > campaignToShow" class="btn-campaign">
-				<button class="url-campaign btn-link-url" @click="campaignToShow += 5">Muat Lebih Banyak</button>
+			<article class="btn-campaign">
+				<button class="url-campaign btn-link-url" @click="simple_toggle(default_limit, campaign.length)">{{ limit_by===5?'Muat Lebih Banyak': 'Muat Lebih Sedikit'}}</button>
 			</article>
 		</section>
 		<section class="show-btn-bottom">
@@ -241,8 +241,8 @@
 						"is_active": 1,
 					}
 				],
-				campaignToShow: 5,
-                totalCampaign: 0,
+				default_limit: 5,
+        		limit_by: 5,
         		swiperBannerOption: {
 					spaceBetween: 30,
 					centeredSlides: true,
@@ -276,6 +276,9 @@
 			scrollToTop() {
 				window.scrollTo(0, 1250);
 			},
+			simple_toggle(default_limit, filters_length) {
+				this.limit_by = (this.limit_by === default_limit) ? filters_length : default_limit;
+			}
         },
 		mounted() {
             this.totalCampaign = this.campaign.length
