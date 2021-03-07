@@ -41,8 +41,28 @@
 		</section>
 		<section class="section-campaign">
 			<h4>Bantu Sesama Sekarang</h4>
-			<article class="card-campaign" v-if="index < limit_by" v-for="(row, index) in campaign" :key="index" :value="row.id">
-				<nuxt-link :to="`/campaign/${row.title}/detail`">
+			<article class="card-campaign"v-for="(row, index) in campaign" :key="index" :value="row.id" v-if="index < limit_by">
+				<nuxt-link :to="`/campaign/${row.title}/detail`" v-if="row.is_active == 0" class="disabled">
+				<figure>
+					<img :src="row.image">
+				</figure>
+				<section class="progress-campaign">
+					<h5>{{row.title}}</h5>
+					<span :class="`badge-category ${row.category}`">{{row.category}}</span>
+					<progress-bar size="medium" :val="50"></progress-bar>
+					<article class="card-funding">
+						<section class="donation">
+							<span>Terkumpul</span>
+							<span>Rp {{row.terkumpul | currency}}</span>
+						</section>
+						<section class="left">
+							<span>Sisa Waktu</span>
+							<span class="time-end">Berakhir</span>
+						</section>
+					</article>
+				</section>
+				</nuxt-link>
+				<nuxt-link :to="`/campaign/${row.title}/detail`" v-else-if="row.is_active == 1">
 				<figure>
 					<img :src="row.image">
 				</figure>
@@ -178,7 +198,7 @@
 						"target": "83768000",
 						"category": "pembangunan",
 						"progress": "50",
-						"is_active": 1,
+						"is_active": 0,
 					},
 					{
 						"id": 4,
@@ -238,7 +258,7 @@
 						"target": "83768000",
 						"category": "umum",
 						"progress": "50",
-						"is_active": 1,
+						"is_active": 0,
 					}
 				],
 				default_limit: 5,
