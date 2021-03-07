@@ -27,9 +27,9 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/vue-awesome-swiper' },
-	{ src: '~/plugins/currency' },
+	  { src: '~/plugins/currency' },
     { src: '~/plugins/vee-validate', ssr: false },
-	{ src: '~/plugins/vue-page-transition', ssr: false },
+	  { src: '~/plugins/vue-page-transition', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

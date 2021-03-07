@@ -31,3 +31,37 @@
 .toasted.toasted-primary.warning {
     background-color: #d9a60c;
 }
+
+.badge-category {
+    height: 19px;
+    width: 67px;
+    border-radius: 24px;
+    padding: 2px 16px 2px 16px;
+    border: 1px;
+    flex-grow: 0;
+    margin: 8px 0px;
+    font-family: $font-default;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-transform: capitalize;
+    color: rgba(52, 52, 52, 0.5);
+    &.umum{
+        background: #FF6DA2;
+    }
+    &.ramadhan {
+        background: #1CD1A1;
+    }
+    &.pembangunan {
+        background: #F3CC91;
+    }
+    &.pendidikan {
+        background: #91E1F3;
+    }
+    &.kesehatan {
+        background: #F39791;
+    }
+}

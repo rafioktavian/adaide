@@ -32,3 +32,25 @@
     background: #CDCDCD;
     max-height: 39px;
 }
+
+.vue-simple-progress {
+    background: #F2F2F2 !important;
+    border-radius: 11px;
+    height: 8px;
+    margin-top: -2px;
+    margin-bottom: 2px;
+}
+.vue-simple-progress-bar {
+    background: linear-gradient(
+99.96deg
+, #FFD260 6.49%, #FF9900 92.13%) !important;
+    border-radius: 11px;
+}
+
+.progress-campaign {
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex: 1 1 0%;
+    padding: 0px 10px 0px 10px;
+}

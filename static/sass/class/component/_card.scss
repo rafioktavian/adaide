@@ -505,3 +505,105 @@
     bottom: 30px;
     transform: rotate(-225deg);
 }
+
+.card-campaign {
+    display: flex;
+    margin-bottom: 20px;
+    color: #202124;
+    background: #FFFFFF;
+    border: 1px solid #F2F2F2;
+    box-sizing: border-box;
+    border-radius: 5px !important;
+    box-shadow: none;
+    height: 133px;
+    h5 {
+        font-family: $font-default;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #202124;
+        line-height: 21px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        margin-top: 5px;
+        margin-bottom: -5px;
+        width: 95%;
+    }
+    a {
+        display: flex;
+    }
+    figure {
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        position: relative;
+        z-index: 0;
+        margin: 0px;
+        flex: 1 1 0%;
+        img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    }
+    .card-funding {
+        width: 100%;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        .donation {
+            display: flex;
+            flex-direction: column;
+            span:first-child {
+                font-family: Poppins;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 10px;
+                line-height: 150%;
+                letter-spacing: 0.01em;
+                color: #B5B5B5;
+            }
+            span:last-child {
+                font-family: $font-default;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 150%;
+                letter-spacing: 0.01em;
+                color: #202124;
+            }
+        }
+        .left {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            span:first-child {
+                font-family: Poppins;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 10px;
+                line-height: 150%;
+                letter-spacing: 0.01em;
+                color: #B5B5B5;
+            }
+            span:last-child {
+                font-family: $font-default;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 150%;
+                letter-spacing: 0.01em;
+                color: #202124;
+            }
+        }
+    }
+}
