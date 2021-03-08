@@ -1,5 +1,5 @@
 <template>   
-    <footer class="footer-section">
+    <footer class="footer-section" v-if="$route.name == 'index'">
         <section class="footer-logo">
            <img src="/img/icons/logo-white.png" alt="logo-adaide"> 
         </section>

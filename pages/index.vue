@@ -2,7 +2,9 @@
 	<main class="content-box content-home">
 		<section class="section-header">
 				<article class="img-logo">
-					<img src="/img/icons/logo.png">
+					<nuxt-link to="/">
+						<img src="/img/icons/logo.png">
+					</nuxt-link>
 				</article>
 				<article class="nav-search">
 					<button @click="search = 'open'">
@@ -23,7 +25,7 @@
 					<div class="swiper-slide" v-for="(row, index) in banners" :key="index" :value="row.id">
 						<img :src="row.image">
 						<h5>{{row.title}}</h5>
-						<nuxt-link :to="`/program/${row.id}/detail`" class="btn btn-cta-1">Selengkapnya</nuxt-link>
+						<nuxt-link :to="`/program/${row.title}/campaign`" class="btn btn-cta-1">Selengkapnya</nuxt-link>
 					</div>
 				</div>
 				<div class="swiper-pagination" slot="pagination"></div>
@@ -34,22 +36,22 @@
 			<div v-swiper:storySwiper="swiperStoryOption">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide" v-for="(row, index) in stories" :key="index" :value="row.id">
-						<nuxt-link :to="`/program/${row.id}/detail`"><img :src="row.image"><h5>{{row.title}}</h5></nuxt-link>
+						<nuxt-link :to="`/berita/${row.title}/detail`"><img :src="row.image"><h5>{{row.title}}</h5></nuxt-link>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="section-campaign">
 			<h4>Bantu Sesama Sekarang</h4>
-			<article class="card-campaign"v-for="(row, index) in campaign" :key="index" :value="row.id" v-if="index < limit_by">
-				<nuxt-link :to="`/campaign/${row.title}/detail`" v-if="row.is_active == 0" class="disabled">
+			<article class="card-campaign" v-for="(row, index) in campaign" :key="index" :value="row.id" v-if="index < limit_by">
+				<nuxt-link :to="`/program/${row.title}/campaign`" v-if="row.is_active == 0" class="disabled">
 				<figure>
 					<img :src="row.image">
 				</figure>
 				<section class="progress-campaign">
 					<h5>{{row.title}}</h5>
 					<span :class="`badge-category ${row.category}`">{{row.category}}</span>
-					<progress-bar size="medium" :val="50"></progress-bar>
+					<progress-bar size="medium" :val="row.progress"></progress-bar>
 					<article class="card-funding">
 						<section class="donation">
 							<span>Terkumpul</span>
@@ -62,7 +64,7 @@
 					</article>
 				</section>
 				</nuxt-link>
-				<nuxt-link :to="`/campaign/${row.title}/detail`" v-else-if="row.is_active == 1">
+				<nuxt-link :to="`/program/${row.title}/campaign`" v-else-if="row.is_active == 1">
 				<figure>
 					<img :src="row.image">
 				</figure>

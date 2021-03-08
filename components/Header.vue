@@ -2,7 +2,7 @@
 	<article>
 		<!-- Navbar Mobile -->
 		<nav class="navbar-mobile"></nav>
-		<nav class="navbar navbar-expand-lg desktop-navigation other-navbar p-0 fixed-bottom">
+		<nav class="navbar desktop-navigation other-navbar p-0 fixed-bottom">
 			<ul class="menu-mobile-bottom">
 				<li>
 					<nuxt-link to="/" exact-active-class="active">
